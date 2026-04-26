@@ -45,22 +45,32 @@
 
     #hud {
       position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       pointer-events: none;
       z-index: 10;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 20%);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, transparent 20%);
     }
 
     /* ── STACKED HUD ── */
-    #left-hud-stack, #right-hud-stack {
+    #left-hud-stack,
+    #right-hud-stack {
       position: absolute;
       top: 16px;
       z-index: 1000;
       pointer-events: none;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    #left-hud-stack { left: 16px; }
-    #right-hud-stack { right: 16px; }
+
+    #left-hud-stack {
+      left: 16px;
+    }
+
+    #right-hud-stack {
+      right: 16px;
+    }
 
     /* Default (Desktop/Laptop) Layout: Floating Side Groups */
     #left-btns {
@@ -73,6 +83,7 @@
       gap: 12px;
       pointer-events: auto;
     }
+
     #right-mid-group {
       position: fixed;
       right: 16px;
@@ -84,7 +95,9 @@
       gap: 16px;
       pointer-events: auto;
     }
-    #top-left-group, #top-right-group {
+
+    #top-left-group,
+    #top-right-group {
       position: static;
       pointer-events: auto;
     }
@@ -94,15 +107,19 @@
       backdrop-filter: blur(12px);
       border: 1px solid rgba(0, 255, 255, 0.3);
       border-radius: 12px;
-      padding: 24px 30px; /* Simplified padding with fixed width */
+      padding: 24px 30px;
+      /* Simplified padding with fixed width */
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-      width: 240px; /* Fixed width for stability */
+      width: 240px;
+      /* Fixed width for stability */
       white-space: nowrap;
     }
 
     /* Mobile Overrides (Modern Corner-Docked Layout) */
     @media (max-width: 900px) {
-      #left-hud-stack, #right-hud-stack {
+
+      #left-hud-stack,
+      #right-hud-stack {
         display: flex;
         flex-direction: column;
         gap: 12px;
@@ -110,52 +127,102 @@
         transform-origin: top left;
         top: 10px;
       }
-      #left-hud-stack { left: 0 !important; top: 10px; }
-      #right-hud-stack { right: 0 !important; top: 10px; align-items: flex-end; transform-origin: top right; }
 
-      #left-hud-stack > *, #right-hud-stack > * { margin: 8px; }
+      #left-hud-stack {
+        left: 0 !important;
+        top: 10px;
+      }
 
-      #left-btns, #right-mid-group {
+      #right-hud-stack {
+        right: 0 !important;
+        top: 10px;
+        align-items: flex-end;
+        transform-origin: top right;
+      }
+
+      #left-hud-stack>*,
+      #right-hud-stack>* {
+        margin: 8px;
+      }
+
+      #left-btns,
+      #right-mid-group {
         position: static !important;
         transform: none !important;
       }
 
-      
+
       #speedometer {
         width: 140px !important;
         height: 100px !important;
         border-radius: 12px !important;
       }
-      
+
       .settings-box {
         width: 95vw !important;
         max-width: 260px !important;
         padding: 8px 12px !important;
       }
-      .settings-label { font-size: 8px !important; }
-      .q-btn { padding: 2px 6px !important; font-size: 7px !important; }
-      .menu-title { font-size: 20px !important; margin-bottom: 2px !important; }
-      .menu-sub { margin-bottom: 12px !important; font-size: 9px !important; }
-      .menu-btn { width: 180px !important; padding: 10px !important; font-size: 11px !important; }
+
+      .settings-label {
+        font-size: 8px !important;
+      }
+
+      .q-btn {
+        padding: 2px 6px !important;
+        font-size: 7px !important;
+      }
+
+      .menu-title {
+        font-size: 20px !important;
+        margin-bottom: 2px !important;
+      }
+
+      .menu-sub {
+        margin-bottom: 12px !important;
+        font-size: 9px !important;
+      }
+
+      .menu-btn {
+        width: 180px !important;
+        padding: 10px !important;
+        font-size: 11px !important;
+      }
 
       .stack-box {
         background: rgba(0, 0, 0, 0.25);
         backdrop-filter: blur(8px);
         border: 1px solid rgba(0, 255, 255, 0.15);
-        padding: 10px 15px; 
-        width: 160px; /* Fixed width for mobile */
+        padding: 10px 15px;
+        width: 160px;
+        /* Fixed width for mobile */
       }
 
-      #btn-zone { 
-        bottom: 15px !important; 
-        right: 15px !important; 
-        gap: 6px !important; 
+      #btn-zone {
+        bottom: 15px !important;
+        right: 15px !important;
+        gap: 6px !important;
         grid-template-columns: repeat(2, 50px) !important;
         grid-template-rows: repeat(2, 50px) !important;
       }
-      .btn { width: 50px !important; height: 50px !important; font-size: 11px !important; }
-      #joystick-wrap { width: 100px !important; height: 100px !important; bottom: 12px !important; left: 12px !important; }
-      #joystick { width: 44px !important; height: 44px !important; }
+
+      .btn {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 11px !important;
+      }
+
+      #joystick-wrap {
+        width: 100px !important;
+        height: 100px !important;
+        bottom: 12px !important;
+        left: 12px !important;
+      }
+
+      #joystick {
+        width: 44px !important;
+        height: 44px !important;
+      }
     }
 
     #speedometer {
@@ -173,7 +240,7 @@
       overflow: hidden;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     }
-    
+
     #speedometer svg {
       position: absolute;
       bottom: -40px;
@@ -322,7 +389,7 @@
       user-select: none;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
-    
+
 
     .btn:active {
       transform: scale(0.9);
@@ -379,7 +446,8 @@
       padding-top: 0;
     }
 
-    .sm-btn span, .sm-btn div {
+    .sm-btn span,
+    .sm-btn div {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -411,7 +479,10 @@
     #orientation-guard {
       display: none;
       position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: linear-gradient(135deg, #050505, #111);
       color: #0ff;
       z-index: 10000;
@@ -430,9 +501,17 @@
     }
 
     @keyframes rotate-hint {
-      0% { transform: rotate(0deg); }
-      50% { transform: rotate(-90deg); }
-      100% { transform: rotate(0deg); }
+      0% {
+        transform: rotate(0deg);
+      }
+
+      50% {
+        transform: rotate(-90deg);
+      }
+
+      100% {
+        transform: rotate(0deg);
+      }
     }
 
     @media (orientation: portrait) {
@@ -526,9 +605,18 @@
     }
 
     @media (max-height: 500px) {
-      #vehicle-select-menu .cars-grid { grid-template-columns: repeat(6, 1fr); gap: 6px; }
-      .car-card { padding: 6px; }
-      .car-card .car-icon { font-size: 20px; }
+      #vehicle-select-menu .cars-grid {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 6px;
+      }
+
+      .car-card {
+        padding: 6px;
+      }
+
+      .car-card .car-icon {
+        font-size: 20px;
+      }
     }
 
     .car-card {
@@ -634,6 +722,49 @@
       line-height: 1.4;
     }
 
+    /* ── Biome Select ── */
+    #biome-select-menu .biomes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 16px 0;
+      width: 90vw;
+      max-width: 600px;
+    }
+
+    @media (max-height: 500px) {
+      #biome-select-menu .biomes-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 6px;
+      }
+    }
+
+    .biome-card {
+      border: 2px solid #fff1;
+      border-radius: 8px;
+      padding: 12px;
+      cursor: pointer;
+      text-align: center;
+      background: #ffffff05;
+      transition: all .2s;
+    }
+
+    .biome-card.selected {
+      border-color: #0ff;
+      background: #0ff1;
+    }
+
+    .biome-card .biome-icon {
+      font-size: 28px;
+      margin-bottom: 4px;
+    }
+
+    .biome-card .biome-name {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: #fff8;
+    }
+
     /* ── Settings ── */
     #settings-menu {
       background: #000d;
@@ -647,7 +778,10 @@
       padding: 10px 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
-    .settings-row:last-child { border-bottom: none; }
+
+    .settings-row:last-child {
+      border-bottom: none;
+    }
 
     .settings-box {
       width: 90vw;
@@ -858,17 +992,17 @@
   <div class="menu hidden" id="mode-menu">
     <div class="menu-title" style="font-size:32px">SELECT MODE</div>
     <div class="mode-grid">
-      <div class="mode-card" onclick="startGame('race')">
+      <div class="mode-card" onclick="selectMode('race')">
         <div class="mode-icon">🏁</div>
         <div class="mode-name">RACE</div>
         <div class="mode-desc">3 laps around the track</div>
       </div>
-      <div class="mode-card" onclick="startGame('endless')">
+      <div class="mode-card" onclick="selectMode('endless')">
         <div class="mode-icon">♾️</div>
         <div class="mode-name">ENDLESS</div>
         <div class="mode-desc">Infinite road, survive!</div>
       </div>
-      <div class="mode-card" onclick="startGame('freeroam')">
+      <div class="mode-card" onclick="selectMode('freeroam')">
         <div class="mode-icon">🌍</div>
         <div class="mode-name">FREE ROAM</div>
         <div class="mode-desc">Explore open world</div>
@@ -885,8 +1019,16 @@
   <div class="menu hidden" id="vehicle-select-menu">
     <div class="menu-title" style="font-size:28px">GARAGE</div>
     <div class="cars-grid" id="cars-grid"></div>
-    <button class="menu-btn primary" onclick="confirmVehicle()">SELECT & CONTINUE</button>
+    <button class="menu-btn primary" onclick="confirmVehicle()">CONFIRM VEHICLE</button>
     <button class="menu-btn" onclick="showMenu('main-menu')" style="margin-top:4px">← BACK</button>
+  </div>
+
+  <!-- BIOME SELECT -->
+  <div class="menu hidden" id="biome-select-menu">
+    <div class="menu-title" style="font-size:28px">SELECT BIOME</div>
+    <div class="biomes-grid" id="biomes-grid"></div>
+    <button class="menu-btn primary" onclick="confirmBiome()">START RACE</button>
+    <button class="menu-btn" onclick="showMenu('mode-menu')" style="margin-top:4px">← BACK</button>
   </div>
 
   <!-- SETTINGS -->
@@ -923,13 +1065,15 @@
 
       <div id="left-btns">
         <div id="btn-cam" class="sm-btn" onclick="cycleCam()">
-          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2.5" fill="none"
+            stroke-linecap="round" stroke-linejoin="round">
             <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
             <circle cx="12" cy="13" r="4"></circle>
           </svg>
         </div>
         <div id="btn-pause" class="sm-btn" onclick="togglePause()">
-          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2.5" fill="none"
+            stroke-linecap="round" stroke-linejoin="round">
             <rect x="6" y="4" width="4" height="16"></rect>
             <rect x="14" y="4" width="4" height="16"></rect>
           </svg>
@@ -948,17 +1092,21 @@
         <div id="speedometer">
           <div class="glow-bg"></div>
           <svg width="100%" height="100%" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(0, 255, 255, 0.1)" stroke-width="2"/>
-            <path id="speed-arc" d="M 18.2 81.8 A 45 45 0 1 1 81.8 81.8" fill="none" stroke="#0ff" stroke-width="3" stroke-dasharray="212" stroke-dashoffset="212"/>
+            <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(0, 255, 255, 0.1)" stroke-width="2" />
+            <path id="speed-arc" d="M 18.2 81.8 A 45 45 0 1 1 81.8 81.8" fill="none" stroke="#0ff" stroke-width="3"
+              stroke-dasharray="212" stroke-dashoffset="212" />
           </svg>
           <div id="speed-val">0</div>
           <div style="font-size:8px; color:#0ff; letter-spacing:1px">KM/H</div>
           <div id="gear-val">N</div>
         </div>
-        <div id="nitro-hud" style="width:100px; height:6px; background:rgba(0,0,0,0.5); border:1px solid rgba(0,255,255,0.3); border-radius:3px; overflow:hidden">
-          <div id="nitro-bar" style="width:0%; height:100%; background:linear-gradient(90deg, #06c, #0ff); transition: width 0.1s"></div>
+        <div id="nitro-hud"
+          style="width:100px; height:6px; background:rgba(0,0,0,0.5); border:1px solid rgba(0,255,255,0.3); border-radius:3px; overflow:hidden">
+          <div id="nitro-bar"
+            style="width:0%; height:100%; background:linear-gradient(90deg, #06c, #0ff); transition: width 0.1s"></div>
         </div>
-        <div id="pos-indicator" class="stack-box" style="padding:6px 12px; font-size:22px; font-weight:900; color:#ff0">P1</div>
+        <div id="pos-indicator" class="stack-box" style="padding:6px 12px; font-size:22px; font-weight:900; color:#ff0">
+          P1</div>
       </div>
     </div>
 
@@ -1031,6 +1179,8 @@
       settings: { shadow: true, particle: true, sound: true, gyro: false },
       camMode: 0, // 0=3rd, 1=1st, 2=top
       selectedVehicle: 0,
+      selectedBiome: -1,
+      streetLights: [],
     };
 
     // ── INPUT ─────────────────────────────────────────────
@@ -1038,6 +1188,7 @@
       gas: false, brake: false, left: false, right: false,
       nitro: false, steerAngle: 0, // -1..1
       keys: {},
+      touch: { gas: false, brake: false, nitro: false }
     };
 
     // ── VEHICLE DEFINITIONS ───────────────────────────────
@@ -1094,6 +1245,9 @@
       }
 
       getBiome(cx, cz) {
+        if (G.selectedBiome !== undefined && G.selectedBiome !== -1) {
+          return BIOMES[G.selectedBiome];
+        }
         const n = this.noise2d(cx * .3, cz * .3);
         const idx = Math.abs(Math.floor((n + 1) * BIOMES.length * .5)) % BIOMES.length;
         return BIOMES[idx];
@@ -1186,42 +1340,42 @@
             group.add(obj);
           }
         }
-        
+
         // Roadside Props
         const propCount = Math.floor(rand() * 4);
         for (let j = 0; j < propCount; j++) {
-           const prop = this.makeRoadsideProp(biome, rand);
-           if (prop) {
-             const px = (rand() - 0.5) * cs;
-             const pz = (rand() - 0.5) * cs;
-             const ph = this.noise2d((cx * cs + px) * .05, (cz * cs + pz) * .05) * 8;
-             prop.position.set(px, ph, pz);
-             group.add(prop);
-           }
+          const prop = this.makeRoadsideProp(biome, rand);
+          if (prop) {
+            const px = (rand() - 0.5) * cs;
+            const pz = (rand() - 0.5) * cs;
+            const ph = this.noise2d((cx * cs + px) * .05, (cz * cs + pz) * .05) * 8;
+            prop.position.set(px, ph, pz);
+            group.add(prop);
+          }
         }
       }
 
       makeRoadsideProp(biome, rand) {
         const type = biome.name;
         if (type === 'CITY' || type === 'NIGHT') {
-           const g = new THREE.Group();
-           const pole = new THREE.Mesh(new THREE.CylinderGeometry(.1, .1, 6), new THREE.MeshStandardMaterial({color: 0x333333}));
-           pole.position.y = 3;
-           const lamp = new THREE.Mesh(new THREE.BoxGeometry(.4, .2, .8), new THREE.MeshStandardMaterial({color: 0x555555}));
-           lamp.position.set(0, 5.9, .3);
-           const glow = new THREE.Mesh(new THREE.SphereGeometry(.2), new THREE.MeshBasicMaterial({color: 0xffffaa}));
-           glow.position.set(0, 5.8, .3);
-           g.add(pole, lamp, glow);
-           return g;
+          const g = new THREE.Group();
+          const pole = new THREE.Mesh(new THREE.CylinderGeometry(.1, .1, 6), new THREE.MeshStandardMaterial({ color: 0x333333 }));
+          pole.position.y = 3;
+          const lamp = new THREE.Mesh(new THREE.BoxGeometry(.4, .2, .8), new THREE.MeshStandardMaterial({ color: 0x555555 }));
+          lamp.position.set(0, 5.9, .3);
+          const glow = new THREE.Mesh(new THREE.SphereGeometry(.2), new THREE.MeshBasicMaterial({ color: 0xffffaa }));
+          glow.position.set(0, 5.8, .3);
+          g.add(pole, lamp, glow);
+          return g;
         }
         if (type === 'FOREST' || type === 'VILLAGE' || type === 'PLAINS') {
-           const g = new THREE.Group();
-           const f1 = new THREE.Mesh(new THREE.BoxGeometry(.1, 1.2, .1), new THREE.MeshStandardMaterial({color: 0x5a3a22}));
-           f1.position.y = 0.6;
-           const rail = new THREE.Mesh(new THREE.BoxGeometry(.1, .1, 2), new THREE.MeshStandardMaterial({color: 0x5a3a22}));
-           rail.position.set(0, 0.9, 0);
-           g.add(f1, rail);
-           return g;
+          const g = new THREE.Group();
+          const f1 = new THREE.Mesh(new THREE.BoxGeometry(.1, 1.2, .1), new THREE.MeshStandardMaterial({ color: 0x5a3a22 }));
+          f1.position.y = 0.6;
+          const rail = new THREE.Mesh(new THREE.BoxGeometry(.1, .1, 2), new THREE.MeshStandardMaterial({ color: 0x5a3a22 }));
+          rail.position.set(0, 0.9, 0);
+          g.add(f1, rail);
+          return g;
         }
         return null;
       }
@@ -1239,7 +1393,7 @@
           trunk.position.y = h * .5;
           trunk.castShadow = true;
           g.add(trunk);
-          
+
           const layers = 3 + Math.floor(rand() * 3);
           for (let i = 0; i < layers; i++) {
             const lSize = (layers - i) * 0.8 + 0.5;
@@ -1255,36 +1409,36 @@
         if (t === 'DESERT') {
           const g = new THREE.Group();
           if (rand() < 0.6) {
-             // Cactus
-             const h = 2 + rand() * 3;
-             const body = new THREE.Mesh(new THREE.CylinderGeometry(.35, .4, h, 8), new THREE.MeshLambertMaterial({ color: 0x2e7d32 }));
-             body.position.y = h * .5;
-             g.add(body);
-             if (h > 3) {
-                const arm = new THREE.Mesh(new THREE.CylinderGeometry(.2, .2, 1.5), new THREE.MeshLambertMaterial({ color: 0x2e7d32 }));
-                arm.position.set(0.5, h * 0.6, 0);
-                arm.rotation.z = Math.PI * 0.4;
-                g.add(arm);
-             }
+            // Cactus
+            const h = 2 + rand() * 3;
+            const body = new THREE.Mesh(new THREE.CylinderGeometry(.35, .4, h, 8), new THREE.MeshLambertMaterial({ color: 0x2e7d32 }));
+            body.position.y = h * .5;
+            g.add(body);
+            if (h > 3) {
+              const arm = new THREE.Mesh(new THREE.CylinderGeometry(.2, .2, 1.5), new THREE.MeshLambertMaterial({ color: 0x2e7d32 }));
+              arm.position.set(0.5, h * 0.6, 0);
+              arm.rotation.z = Math.PI * 0.4;
+              g.add(arm);
+            }
           } else {
-             // Rock
-             const rock = new THREE.Mesh(new THREE.DodecahedronGeometry(1 + rand() * 2), new THREE.MeshLambertMaterial({ color: 0x8d6e63 }));
-             rock.position.y = 0.5;
-             g.add(rock);
+            // Rock
+            const rock = new THREE.Mesh(new THREE.DodecahedronGeometry(1 + rand() * 2), new THREE.MeshLambertMaterial({ color: 0x8d6e63 }));
+            rock.position.y = 0.5;
+            g.add(rock);
           }
           return g;
         }
         if (t === 'SNOW') {
           const g = new THREE.Group();
           if (rand() < 0.5) {
-             // Snow covered tree
-             const leaves = new THREE.Mesh(new THREE.ConeGeometry(2, 4, 6), new THREE.MeshLambertMaterial({ color: 0xffffff }));
-             leaves.position.y = 2;
-             g.add(leaves);
+            // Snow covered tree
+            const leaves = new THREE.Mesh(new THREE.ConeGeometry(2, 4, 6), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+            leaves.position.y = 2;
+            g.add(leaves);
           } else {
-             const rock = new THREE.Mesh(new THREE.DodecahedronGeometry(0.8 + rand()), new THREE.MeshLambertMaterial({ color: 0xeeeeee }));
-             rock.position.y = 0.4;
-             g.add(rock);
+            const rock = new THREE.Mesh(new THREE.DodecahedronGeometry(0.8 + rand()), new THREE.MeshLambertMaterial({ color: 0xeeeeee }));
+            rock.position.y = 0.4;
+            g.add(rock);
           }
           return g;
         }
@@ -1301,15 +1455,15 @@
           building.position.y = h * .5;
           building.castShadow = true;
           g.add(building);
-          
+
           // Windows (emissive)
           if (rand() > 0.3) {
             const winGeo = new THREE.BoxGeometry(w + 0.1, 0.5, d + 0.1);
             const winMat = new THREE.MeshBasicMaterial({ color: 0xffffaa });
             for (let j = 0; j < h; j += 4) {
-               const win = new THREE.Mesh(winGeo, winMat);
-               win.position.y = j + 2;
-               g.add(win);
+              const win = new THREE.Mesh(winGeo, winMat);
+              win.position.y = j + 2;
+              g.add(win);
             }
           }
           return g;
@@ -1457,14 +1611,14 @@
             }
           }
         }
-        
+
         // Friction and Rolling Resistance
         const resistance = this.isAirborne ? 0.01 : 0.035;
         this.speed -= this.speed * resistance * dtSec;
-        
+
         // Slope resistance (climbing up slows down, going down speeds up)
         if (!this.isAirborne) {
-           this.speed -= this.onSlope * 15 * dtSec;
+          this.speed -= this.onSlope * 15 * dtSec;
         }
 
         this.speed = Math.min(maxSpd, Math.max(-maxSpd * 0.3, this.speed));
@@ -1484,7 +1638,7 @@
 
         // Move calculation
         const dir = new THREE.Vector3(Math.sin(this.yaw), 0, Math.cos(this.yaw));
-        
+
         // Vertical Physics (Gravity & Jumps)
         const gravity = 25;
         if (this.isAirborne) {
@@ -1517,28 +1671,54 @@
         // Apply movement
         this.pos.addScaledVector(dir, this.speed * dt);
 
-        // Off-road penalty
+        // Off-road penalty + HARD CONSTRAINT
         this.onRoad = true;
-        if (raceMode === 'race' && trackWaypoints) {
+        let maxDist = (raceMode === 'race' || raceMode === 'freeroam') ? 10.2 : 10.2; // 20/2 = 10 + buffer
+
+        if ((raceMode === 'race' || raceMode === 'freeroam') && trackWaypoints) {
           let minDist = Infinity;
-          for (const wp of trackWaypoints) {
-            const d = this.pos.distanceTo(wp);
-            if (d < minDist) minDist = d;
+          let closestPt = new THREE.Vector3();
+          for (let i = 0; i < trackWaypoints.length; i++) {
+            const p1 = trackWaypoints[i];
+            const p2 = trackWaypoints[(i + 1) % trackWaypoints.length];
+            const v = new THREE.Vector3().subVectors(p2, p1);
+            const w = new THREE.Vector3().subVectors(this.pos, p1);
+            let t = (w.dot(v)) / (v.dot(v));
+            t = Math.max(0, Math.min(1, t));
+            const proj = new THREE.Vector3().copy(p1).addScaledVector(v, t);
+            const d = this.pos.distanceTo(proj);
+            if (d < minDist) { minDist = d; closestPt.copy(proj); }
           }
-          if (minDist > 12) this.onRoad = false;
+          if (minDist > maxDist) {
+            this.onRoad = false;
+            const pushDir = new THREE.Vector3().subVectors(this.pos, closestPt).normalize();
+            this.pos.copy(closestPt).addScaledVector(pushDir, maxDist);
+          }
         } else if (raceMode === 'endless' && endlessRoad) {
-           let minDist = Infinity;
-           // Check nearby segments only for performance
-           const startIdx = Math.max(0, endlessRoad.segments.length - 10);
-           for (let i = startIdx; i < endlessRoad.segments.length; i++) {
-              const d = this.pos.distanceTo(endlessRoad.segments[i].end);
-              if (d < minDist) minDist = d;
-           }
-           if (minDist > 14) this.onRoad = false;
+          let minDist = Infinity;
+          let closestPt = new THREE.Vector3();
+          const startIdx = Math.max(0, endlessRoad.segments.length - 10);
+          for (let i = startIdx; i < endlessRoad.segments.length; i++) {
+            const seg = endlessRoad.segments[i];
+            const p1 = i === 0 ? new THREE.Vector3(0, 0, 0) : endlessRoad.segments[i - 1].end;
+            const p2 = seg.end;
+            const v = new THREE.Vector3().subVectors(p2, p1);
+            const w = new THREE.Vector3().subVectors(this.pos, p1);
+            let t = (w.dot(v)) / (v.dot(v));
+            t = Math.max(0, Math.min(1, t));
+            const proj = new THREE.Vector3().copy(p1).addScaledVector(v, t);
+            const d = this.pos.distanceTo(proj);
+            if (d < minDist) { minDist = d; closestPt.copy(proj); }
+          }
+          if (minDist > maxDist) {
+            this.onRoad = false;
+            const pushDir = new THREE.Vector3().subVectors(this.pos, closestPt).normalize();
+            this.pos.copy(closestPt).addScaledVector(pushDir, maxDist);
+          }
         }
-        
+
         if (!this.onRoad) {
-          this.speed *= (1 - 0.08 * dtSec); // Smoother penalty
+          this.speed *= (1 - 0.08 * dtSec);
         }
 
         // Nitro drain
@@ -1562,7 +1742,7 @@
         // Sync mesh
         this.group.position.copy(this.pos);
         this.group.rotation.y = this.yaw;
-        
+
         // Tilt based on slope
         this.bodyMesh.rotation.x = -Math.atan(this.onSlope) * 0.8;
         this.bodyMesh.rotation.z = this.lean * Math.PI / 180;
@@ -1738,14 +1918,14 @@
         this.canvas = canvas;
         this.ctx = canvas.getContext('2d');
         this.trackPts = trackPts;
-        
+
         // Dynamic scaling and centering
         let minX = Infinity, maxX = -Infinity, minZ = Infinity, maxZ = -Infinity;
         trackPts.forEach(p => {
           minX = Math.min(minX, p.x); maxX = Math.max(maxX, p.x);
           minZ = Math.min(minZ, p.z); maxZ = Math.max(maxZ, p.z);
         });
-        
+
         const w = maxX - minX;
         const h = maxZ - minZ;
         const maxDim = Math.max(w, h, 1);
@@ -1753,11 +1933,11 @@
         this.ox = canvas.width / 2 - ((minX + maxX) / 2) * this.scale;
         this.oz = canvas.height / 2 - ((minZ + maxZ) / 2) * this.scale;
       }
- 
+
       draw(player, aiVehicles) {
         const ctx = this.ctx;
         ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
- 
+
         // Track path Background
         ctx.beginPath();
         ctx.strokeStyle = '#ffffff11';
@@ -1769,7 +1949,7 @@
         });
         ctx.closePath();
         ctx.stroke();
- 
+
         // Track path Line
         ctx.beginPath();
         ctx.strokeStyle = '#00ffff44';
@@ -1781,13 +1961,13 @@
         });
         ctx.closePath();
         ctx.stroke();
- 
+
         // Start Line marker
         const sx = this.ox + this.trackPts[0].x * this.scale;
         const sz = this.oz + this.trackPts[0].z * this.scale;
         ctx.fillStyle = '#fff';
         ctx.fillRect(sx - 4, sz - 4, 8, 8);
- 
+
         // AI
         for (const v of aiVehicles) {
           const x = this.ox + v.pos.x * this.scale;
@@ -1797,7 +1977,7 @@
           ctx.fillStyle = '#ff4444';
           ctx.fill();
         }
- 
+
         // Player
         if (player) {
           const x = this.ox + player.pos.x * this.scale;
@@ -1806,7 +1986,7 @@
           ctx.arc(x, z, 5, 0, Math.PI * 2);
           ctx.fillStyle = '#00ffff';
           ctx.fill();
-          
+
           // Heading line
           ctx.beginPath();
           ctx.strokeStyle = '#00ffff';
@@ -1960,7 +2140,7 @@
           (playerPos?.z || 0)
         );
         this.sunLight.target.position.copy(playerPos || new THREE.Vector3());
-        
+
         // Sun Color & Intensity (mixed with biome)
         const sunCol = new THREE.Color(currentBiome.sunCol).lerp(new THREE.Color(0xffffff), 0.5);
         this.sunLight.color.copy(sunCol);
@@ -1982,11 +2162,11 @@
         // Sky/fog color (transitioning between current biome settings)
         const skyTarget = new THREE.Color(currentBiome.sky);
         const fogTarget = new THREE.Color(currentBiome.fog);
-        
+
         const lerpSpeed = dt * 1.5;
         G.scene.background.lerp(dayRatio > 0.1 ? skyTarget : new THREE.Color(0x050a15), lerpSpeed);
         G.scene.fog.color.lerp(dayRatio > 0.1 ? fogTarget : new THREE.Color(0x050510), lerpSpeed);
-        
+
         const baseFogDensity = currentBiome.fogD || 0.01;
         G.scene.fog.density = baseFogDensity + (nightRatio * 0.01);
 
@@ -2083,17 +2263,75 @@
         const m = Math.floor(t / 60), s = Math.floor(t % 60), ms = Math.floor((t % 1) * 1000);
         const timeHud = document.getElementById('time-hud');
         if (timeHud) timeHud.textContent = `${m}:${s.toString().padStart(2, '0')}.${ms.toString().padStart(3, '0')}`;
+
+        // Update street lights
+        const hour = (G.elapsed * 0.01 + 8) % 24;
+        const lightsOn = hour < 6 || hour > 18;
+        G.streetLights.forEach(sl => {
+          sl.light.intensity = lightsOn ? 1.5 : 0;
+          sl.group.children[sl.group.children.length - 1].visible = lightsOn; // glow
+        });
       }
+    }
+
+    // ════════════════════════════════════════════════════
+    //  STREET LIGHT / SIGN HELPERS
+    // ════════════════════════════════════════════════════
+    function makeStreetLight() {
+      const group = new THREE.Group();
+      const poleHeight = 8;
+      const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.2, poleHeight), new THREE.MeshStandardMaterial({ color: 0x444444 }));
+      pole.position.y = poleHeight / 2;
+      group.add(pole);
+
+      const armCurve = new THREE.QuadraticBezierCurve3(
+        new THREE.Vector3(0, poleHeight, 0),
+        new THREE.Vector3(0, poleHeight + 0.8, 0),
+        new THREE.Vector3(2.5, poleHeight + 0.4, 0)
+      );
+      const arm = new THREE.Mesh(new THREE.TubeGeometry(armCurve, 8, 0.1, 8), new THREE.MeshStandardMaterial({ color: 0x444444 }));
+      group.add(arm);
+
+      const head = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.2, 0.6), new THREE.MeshStandardMaterial({ color: 0x333333 }));
+      head.position.set(2.5, poleHeight + 0.4, 0);
+      group.add(head);
+
+      const light = new THREE.PointLight(0xffffaa, 0, 30);
+      light.position.set(2.5, poleHeight + 0.1, 0);
+      group.add(light);
+
+      const glow = new THREE.Mesh(new THREE.SphereGeometry(0.4), new THREE.MeshBasicMaterial({ color: 0xffffaa, transparent: true, opacity: 0.4, visible: false }));
+      glow.position.set(2.5, poleHeight + 0.1, 0);
+      group.add(glow);
+
+      return { group, light };
+    }
+
+    function makeHighwaySign(text) {
+      const g = new THREE.Group();
+      const h = 9;
+      const pole1 = new THREE.Mesh(new THREE.CylinderGeometry(.2, .2, h), new THREE.MeshStandardMaterial({ color: 0x555555 }));
+      pole1.position.set(-8, h / 2, 0);
+      const pole2 = new THREE.Mesh(new THREE.CylinderGeometry(.2, .2, h), new THREE.MeshStandardMaterial({ color: 0x555555 }));
+      pole2.position.set(8, h / 2, 0);
+      const beam = new THREE.Mesh(new THREE.BoxGeometry(16, .4, .4), new THREE.MeshStandardMaterial({ color: 0x555555 }));
+      beam.position.y = h - 1;
+      const board = new THREE.Mesh(new THREE.BoxGeometry(6, 3, .2), new THREE.MeshStandardMaterial({ color: 0x1a4a1a }));
+      board.position.set(4, h - 1, .2);
+      g.add(pole1, pole2, beam, board);
+      return g;
     }
 
     // ════════════════════════════════════════════════════
     //  ROAD BUILDER
     // ════════════════════════════════════════════════════
     function buildRoad(scene, points) {
-      const roadWidth = 14;
+      const roadWidth = 20; // Wider for more lanes
       const curbWidth = 1.2;
       const positions = [], uvs = [], indices = [];
       const cLPos = [], cRPos = [];
+
+      G.streetLights = [];
 
       for (let i = 0; i < points.length; i++) {
         const curr = points[i];
@@ -2101,16 +2339,36 @@
         const dir = new THREE.Vector3().subVectors(next, curr).normalize();
         const perp = new THREE.Vector3(-dir.z, 0, dir.x);
         const h = chunkWorld ? chunkWorld.noise2d(curr.x * .05, curr.z * .05) * 8 : 0;
-        
+
         const l = new THREE.Vector3().copy(curr).addScaledVector(perp, -roadWidth * .5);
         const r = new THREE.Vector3().copy(curr).addScaledVector(perp, roadWidth * .5);
         l.y = h + 0.11; r.y = h + 0.11;
         positions.push(l.x, l.y, l.z, r.x, r.y, r.z);
-        uvs.push(0, i / points.length * 20, 1, i / points.length * 20);
-        
-        // Curb positions
+        uvs.push(0, i / points.length * 30, 1, i / points.length * 30);
+
+        // Curb/Guardrail positions
         cLPos.push(l.clone().add(new THREE.Vector3(0, 0.4, 0)));
         cRPos.push(r.clone().add(new THREE.Vector3(0, 0.4, 0)));
+
+        // Place Streetlights
+        if (i % 8 === 0) {
+          const sl = makeStreetLight();
+          const side = (i % 16 === 0) ? 1 : -1;
+          const slPos = curr.clone().addScaledVector(perp, side * (roadWidth * .5 + 1));
+          const slH = chunkWorld ? chunkWorld.noise2d(slPos.x * .05, slPos.z * .05) * 8 : 0;
+          sl.group.position.set(slPos.x, slH, slPos.z);
+          sl.group.rotation.y = Math.atan2(dir.x, dir.z) + (side > 0 ? 0 : Math.PI);
+          scene.add(sl.group);
+          G.streetLights.push(sl);
+        }
+
+        // Place Highway Signs
+        if (i % 40 === 20) {
+          const sign = makeHighwaySign();
+          sign.position.set(curr.x, h, curr.z);
+          sign.rotation.y = Math.atan2(dir.x, dir.z);
+          scene.add(sign);
+        }
       }
 
       for (let i = 0; i < points.length; i++) {
@@ -2124,62 +2382,40 @@
       geo.setIndex(indices);
       geo.computeVertexNormals();
 
-      const mat = new THREE.MeshLambertMaterial({ color: 0x222222 });
+      const mat = new THREE.MeshLambertMaterial({ color: 0x333333 });
       const mesh = new THREE.Mesh(geo, mat);
       mesh.receiveShadow = true;
       scene.add(mesh);
 
-      // Curbs (visual boundaries)
-      const curbMat = new THREE.MeshLambertMaterial({ color: 0xcc2222 });
+      // Guardrails (Metal style)
+      const curbMat = new THREE.MeshStandardMaterial({ color: 0xaaaaaa, metalness: 0.8, roughness: 0.2 });
       [cLPos, cRPos].forEach(pList => {
         const cPath = new THREE.CatmullRomCurve3(pList, true);
-        const cGeo = new THREE.TubeGeometry(cPath, pList.length * 2, 0.5, 8, true);
+        const cGeo = new THREE.TubeGeometry(cPath, pList.length * 2, 0.4, 6, true);
         const cMesh = new THREE.Mesh(cGeo, curbMat);
-        cMesh.castShadow = true;
         scene.add(cMesh);
       });
 
-      // Start/Finish Line
-      const startPos = points[0];
-      const startNext = points[1];
-      const startDir = new THREE.Vector3().subVectors(startNext, startPos).normalize();
-      const startH = chunkWorld ? chunkWorld.noise2d(startPos.x * .05, startPos.z * .05) * 8 : 0;
-      
-      const lineGeo = new THREE.PlaneGeometry(roadWidth, 3);
-      const lineMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.8 });
-      const line = new THREE.Mesh(lineGeo, lineMat);
-      line.rotation.x = -Math.PI * 0.5;
-      line.rotation.z = Math.atan2(startDir.x, startDir.z);
-      line.position.set(startPos.x, startH + 0.15, startPos.z);
-      scene.add(line);
-
-      // Dashed center line
-      const centerLinePts = points.map(p => {
-        const ph = chunkWorld ? chunkWorld.noise2d(p.x * .05, p.z * .05) * 8 : 0;
-        return new THREE.Vector3(p.x, ph + 0.12, p.z);
+      // Lane Markings
+      const laneOffsets = [-6.6, -3.3, 0, 3.3, 6.6];
+      laneOffsets.forEach((offset, idx) => {
+        const isCenter = offset === 0;
+        const lanePts = points.map(p => {
+          const dir = new THREE.Vector3().subVectors(points[(points.indexOf(p) + 1) % points.length], p).normalize();
+          const perp = new THREE.Vector3(-dir.z, 0, dir.x);
+          const ph = chunkWorld ? chunkWorld.noise2d(p.x * .05, p.z * .05) * 8 : 0;
+          return new THREE.Vector3(p.x, ph + 0.13, p.z).addScaledVector(perp, offset);
+        });
+        lanePts.push(lanePts[0]);
+        const laneGeo = new THREE.BufferGeometry().setFromPoints(lanePts);
+        const laneMat = new THREE.LineDashedMaterial({
+          color: isCenter ? 0xffcc00 : 0xffffff,
+          dashSize: 4, gapSize: 4, transparent: true, opacity: 0.6
+        });
+        const line = new THREE.Line(laneGeo, laneMat);
+        line.computeLineDistances();
+        scene.add(line);
       });
-      centerLinePts.push(centerLinePts[0]);
-      const centerLineGeo = new THREE.BufferGeometry().setFromPoints(centerLinePts);
-      const centerLine = new THREE.Line(centerLineGeo, new THREE.LineBasicMaterial({ color: 0xffff00, opacity: .7, transparent: true }));
-      scene.add(centerLine);
-
-      // Roadside Bollards (Visual Boundaries)
-      const bollardGeo = new THREE.CylinderGeometry(.15, .15, 1, 6);
-      const bollardMat = new THREE.MeshLambertMaterial({ color: 0xeeeeee });
-      for (let i = 0; i < points.length; i += 2) {
-        const p = points[i];
-        const next = points[(i+1)%points.length];
-        const dir = new THREE.Vector3().subVectors(next, p).normalize();
-        const perp = new THREE.Vector3(-dir.z, 0, dir.x);
-        for (let side of [-1, 1]) {
-           const bPos = p.clone().addScaledVector(perp, side * (roadWidth * .5 + 1.5));
-           const bh = chunkWorld ? chunkWorld.noise2d(bPos.x * .05, bPos.z * .05) * 8 : 0;
-           const bollard = new THREE.Mesh(bollardGeo, bollardMat);
-           bollard.position.set(bPos.x, bh + 0.5, bPos.z);
-           bollard.castShadow = true;
-           scene.add(bollard);
-        }
-      }
 
       return mesh;
     }
@@ -2192,7 +2428,7 @@
         this.scene = scene;
         this.segments = [];
         this.segLen = 40;
-        this.width = 14;
+        this.width = 20;
         this.maxSegs = 20;
         this.curPos = new THREE.Vector3(0, 0, 0);
         this.curDir = new THREE.Vector3(0, 0, 1);
@@ -2229,11 +2465,54 @@
           geo.setAttribute('position', new THREE.Float32BufferAttribute(verts, 3));
           geo.setIndex([0, 1, 2, 1, 3, 2]);
           geo.computeVertexNormals();
-          const mat = new THREE.MeshLambertMaterial({ color: 0x222222 });
+          const mat = new THREE.MeshLambertMaterial({ color: 0x333333 });
           const mesh = new THREE.Mesh(geo, mat);
           mesh.receiveShadow = true;
           this.scene.add(mesh);
-          this.segments.push({ mesh, end: next, dir });
+
+          const group = new THREE.Group();
+          group.add(mesh);
+
+          // Lane markings for this segment
+          const laneOffsets = [-6.6, -3.3, 0, 3.3, 6.6];
+          laneOffsets.forEach(offset => {
+            const isCenter = offset === 0;
+            const lp1 = l.clone().lerp(r, (offset + this.width / 2) / this.width).add(new THREE.Vector3(0, 0.05, 0));
+            const lp2 = l2.clone().lerp(r2, (offset + this.width / 2) / this.width).add(new THREE.Vector3(0, 0.05, 0));
+            const lGeo = new THREE.BufferGeometry().setFromPoints([lp1, lp2]);
+            const lMat = new THREE.LineDashedMaterial({
+              color: isCenter ? 0xffcc00 : 0xffffff,
+              dashSize: 4, gapSize: 4, transparent: true, opacity: 0.6
+            });
+            const line = new THREE.Line(lGeo, lMat);
+            line.computeLineDistances();
+            group.add(line);
+          });
+
+          // Guardrails
+          const railMat = new THREE.MeshStandardMaterial({ color: 0xaaaaaa, metalness: 0.8, roughness: 0.2 });
+          const railL = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.3, this.segLen), railMat);
+          railL.position.copy(l.clone().lerp(l2, 0.5)).add(new THREE.Vector3(0, 0.5, 0));
+          railL.lookAt(l2.clone().add(new THREE.Vector3(0, 0.5, 0)));
+          const railR = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.3, this.segLen), railMat);
+          railR.position.copy(r.clone().lerp(r2, 0.5)).add(new THREE.Vector3(0, 0.5, 0));
+          railR.lookAt(r2.clone().add(new THREE.Vector3(0, 0.5, 0)));
+          group.add(railL, railR);
+
+          // Streetlight every few segments
+          if (this.segments.length % 3 === 0) {
+            const sl = makeStreetLight();
+            const side = (this.segments.length % 6 === 0) ? 1 : -1;
+            const slPos = this.curPos.clone().addScaledVector(perp, side * (this.width * 0.5 + 1));
+            const slH = chunkWorld ? chunkWorld.noise2d(slPos.x * .05, slPos.z * .05) * 8 : 0;
+            sl.group.position.set(slPos.x, slH, slPos.z);
+            sl.group.rotation.y = this.curAngle + (side > 0 ? 0 : Math.PI);
+            group.add(sl.group);
+            G.streetLights.push(sl);
+          }
+
+          this.scene.add(group);
+          this.segments.push({ mesh: group, end: next, dir });
           this.curPos.copy(next);
         }
       }
@@ -2322,7 +2601,7 @@
         // Apply smooth movement
         this.smoothPos.lerp(targetPos, lerpSpeed);
         this.smoothLook.lerp(lookAt, lerpSpeed);
-        
+
         // FOV Update
         if (Math.abs(this.cam.fov - fovTarget) > 0.1) {
           this.cam.fov += (fovTarget - this.cam.fov) * dt * 3;
@@ -2330,12 +2609,12 @@
         }
 
         this.cam.position.copy(this.smoothPos);
-        
+
         // Add subtle shake at high speed
         if (vSpeed > vehicle.maxSpeed * 0.7) {
-           const s = (vSpeed / vehicle.maxSpeed - 0.7) * 0.1;
-           this.cam.position.x += (Math.random() - 0.5) * s;
-           this.cam.position.y += (Math.random() - 0.5) * s;
+          const s = (vSpeed / vehicle.maxSpeed - 0.7) * 0.1;
+          this.cam.position.x += (Math.random() - 0.5) * s;
+          this.cam.position.y += (Math.random() - 0.5) * s;
         }
 
         this.cam.lookAt(this.smoothLook);
@@ -2405,10 +2684,10 @@
         // Only reset if not using the touch wheel
         Input.steerAngle = 0;
       }
-      
-      Input.gas = !!(Input.keys['ArrowUp'] || Input.keys['KeyW'] || Input.keys['Space']);
-      Input.brake = !!(Input.keys['ArrowDown'] || Input.keys['KeyS']);
-      Input.nitro = !!(Input.keys['ShiftLeft'] || Input.keys['ShiftRight']);
+
+      Input.gas = !!(Input.keys['ArrowUp'] || Input.keys['KeyW'] || Input.keys['Space']) || Input.touch.gas;
+      Input.brake = !!(Input.keys['ArrowDown'] || Input.keys['KeyS']) || Input.touch.brake;
+      Input.nitro = !!(Input.keys['ShiftLeft'] || Input.keys['ShiftRight']) || Input.touch.nitro;
     }
 
     // ════════════════════════════════════════════════════
@@ -2468,6 +2747,8 @@
         G.renderer.setSize(w, h, true);
         if (minimap) minimap.canvas.width = minimap.canvas.height = 120; // Ensure canvas size consistency
       });
+
+      window.addEventListener('contextmenu', e => e.preventDefault());
     }
 
     function initGame(mode) {
@@ -2477,10 +2758,10 @@
         const docEl = document.documentElement;
         if (docEl.requestFullscreen) {
           docEl.requestFullscreen().then(() => {
-            screen.orientation.lock('landscape').catch(() => {});
-          }).catch(() => {});
+            screen.orientation.lock('landscape').catch(() => { });
+          }).catch(() => { });
         } else {
-          screen.orientation.lock('landscape').catch(() => {});
+          screen.orientation.lock('landscape').catch(() => { });
         }
       }
 
@@ -2638,10 +2919,10 @@
       // HUD updates
       const speedEl = document.getElementById('speed-val');
       if (speedEl) speedEl.textContent = Math.floor(player.speed * 3.6);
-      
+
       const gearEl = document.getElementById('gear-val');
       if (gearEl) gearEl.textContent = ['N', '1', '2', '3', '4', '5', '6'][player.gear] || 'N';
-      
+
       const nitroBar = document.getElementById('nitro-bar');
       if (nitroBar) nitroBar.style.width = `${player.nitro * 100}%`;
 
@@ -2670,6 +2951,48 @@
       }
 
       G.renderer.render(G.scene, G.camera);
+    }
+    function selectMode(mode) {
+      raceMode = mode;
+      buildBiomeSelect();
+      showMenu('biome-select-menu');
+    }
+
+    function confirmBiome() {
+      startGame(raceMode);
+    }
+
+    const BIOME_ICONS = {
+      'PLAINS': '🌿', 'DESERT': '🌵', 'FOREST': '🌲', 'SNOW': '❄️',
+      'SWAMP': '🍄', 'CITY': '🏙️', 'VILLAGE': '🏡', 'NIGHT': '🌙'
+    };
+
+    function buildBiomeSelect() {
+      const grid = document.getElementById('biomes-grid');
+      grid.innerHTML = '';
+
+      // Random option
+      const rCard = document.createElement('div');
+      rCard.className = 'biome-card' + (G.selectedBiome === -1 ? ' selected' : '');
+      rCard.innerHTML = `<div class="biome-icon">🎲</div><div class="biome-name">RANDOM</div>`;
+      rCard.onclick = () => {
+        G.selectedBiome = -1;
+        document.querySelectorAll('.biome-card').forEach(c => c.classList.remove('selected'));
+        rCard.classList.add('selected');
+      };
+      grid.appendChild(rCard);
+
+      BIOMES.forEach((b, i) => {
+        const card = document.createElement('div');
+        card.className = 'biome-card' + (i === G.selectedBiome ? ' selected' : '');
+        card.innerHTML = `<div class="biome-icon">${BIOME_ICONS[b.name] || '🌍'}</div><div class="biome-name">${b.name}</div>`;
+        card.onclick = () => {
+          G.selectedBiome = i;
+          document.querySelectorAll('.biome-card').forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+        };
+        grid.appendChild(card);
+      });
     }
 
     // ════════════════════════════════════════════════════
@@ -2713,8 +3036,8 @@
       }, 2000);
     }
 
-    function btnDown(b) { Input[b] = true; }
-    function btnUp(b) { Input[b] = false; }
+    function btnDown(b) { Input.touch[b] = true; }
+    function btnUp(b) { Input.touch[b] = false; }
 
     function showCountdown() {
       const el = document.getElementById('countdown');
