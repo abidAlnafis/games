@@ -1,0 +1,73 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Rear Spoiler GT Wing -->
+    <path
+        android:pathData="M24,36 L84,36 L84,41 L24,41 Z"
+        android:fillColor="#ff007f" />
+    <path
+        android:pathData="M28,41 L32,41 L32,50 L28,50 Z M76,41 L80,41 L80,50 L76,50 Z"
+        android:fillColor="#cccccc" />
+
+    <!-- Left & Right Tires -->
+    <path
+        android:pathData="M16,70 L24,70 L24,86 L16,86 Z M84,70 L92,70 L92,86 L84,86 Z"
+        android:fillColor="#111111" />
+
+    <!-- Canopy / Windshield -->
+    <path
+        android:pathData="M35,46 L73,46 L77,58 L31,58 Z"
+        android:fillColor="#222533" />
+    <path
+        android:pathData="M38,48 L70,48 L73,56 L35,56 Z"
+        android:fillColor="#00f0ff" />
+
+    <!-- Car Body / Hood -->
+    <path
+        android:pathData="M20,58 L88,58 L92,76 L16,76 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="54"
+                android:startY="58"
+                android:endX="54"
+                android:endY="76"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#ff007f" />
+                <item android:offset="1.0" android:color="#7f00ff" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Headlights (Glowing Cyan) -->
+    <path
+        android:pathData="M20,68 L32,69 L30,73 L18,71 Z"
+        android:fillColor="#ffffff" />
+    <path
+        android:pathData="M88,68 L76,69 L78,73 L90,71 Z"
+        android:fillColor="#ffffff" />
+
+    <!-- Front Bumper / Grille -->
+    <path
+        android:pathData="M32,76 L76,76 L72,86 L36,86 Z"
+        android:fillColor="#15151e" />
+    <!-- Grill mesh detail -->
+    <path
+        android:pathData="M36,78 L72,78 M38,81 L70,81 M40,84 L68,84"
+        android:strokeWidth="1.0"
+        android:strokeColor="#1aff007f" />
+
+    <!-- Lower Splitter -->
+    <path
+        android:pathData="M14,84 L94,84 L92,88 L16,88 Z"
+        android:fillColor="#ff007f" />
+
+    <!-- Neon Ground reflection -->
+    <path
+        android:pathData="M20,94 C40,92 68,92 88,94"
+        android:strokeWidth="3.0"
+        android:strokeColor="#4d00f0ff" />
+</vector>
