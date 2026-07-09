@@ -1,6 +1,0 @@
-{
-  "name": "Turbo Racer 3D",
-  "description": "A high-performance AAA-quality 3D racing game with multiple biomes, custom garage, real-time physics, local multiplayer simulation, and synthesized audio.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
